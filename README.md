@@ -1,6 +1,12 @@
-# body_mass_index
+# Overview
 
-Tugas 1 Edspert Flutter Bootcamp - BMI
+Tugas 1 Mobile Development Bootcamp with Flutter by Edspert.id - Body Mass Index (BMI)
+
+## Tujuan Project
+
+1. Penerapan Dart Basic (Variabel, Tipe Data, Fungsi, Control Flow)
+2. Penerapan Fundamental Flutter (Material/Cupertino Design, Widget, Navigation 1.0)
+3. Get your hand dirty with Widget - UI
 
 ## Getting Started
 
