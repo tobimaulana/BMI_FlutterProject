@@ -1,3 +1,4 @@
+import 'package:body_mass_index/bmi_result_screen.dart';
 import 'package:flutter/material.dart';
 
 class BmiDataScreen extends StatefulWidget {
@@ -25,10 +26,21 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
           Expanded(child: Container(
             color: Colors.green,
           )),
-          Container(
-            height: 60,
-            color: Colors.deepPurpleAccent,
-            child: const Center(child: Text("Hitung BMI")),
+          GestureDetector(
+            onTap: (){
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                    builder: ((context) {
+                  return const BmiResultScreen();
+                }),
+                ),
+              );
+            },
+            child: Container(
+              height: 60,
+              color: Colors.deepPurpleAccent,
+              child: const Center(child: Text("Hitung BMI")),
+            ),
           )
         ],
       ),
