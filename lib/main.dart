@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'constants/constant.dart';
 import 'views/bmi_data_screen.dart';
 
 void main() {
@@ -15,8 +16,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        appBarTheme: const AppBarTheme(backgroundColor: Color(0xff1E285D)
-        ),
+        scaffoldBackgroundColor: primaryBGColor,
+        appBarTheme: AppBarTheme(
+            backgroundColor: primaryBGColorAccent),
         // This is the theme of your application.
         //
         // Try running your application with "flutter run". You'll see the
