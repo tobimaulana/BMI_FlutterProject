@@ -1,6 +1,8 @@
 import 'package:body_mass_index/views/bmi_result_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../constants/constant.dart';
+
 class BmiDataScreen extends StatefulWidget {
   const BmiDataScreen({Key? key}) : super(key: key);
 
@@ -14,60 +16,29 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
     return Scaffold(
       backgroundColor: const Color(0xff12153B),
       appBar: AppBar(
+        centerTitle: true,
         title: const Text("BMI Calculator"),
       ),
       body: Column(
         children: [
           Expanded(
               child: Row(
-                children: [
+                children: const [
                   Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: const Color(0xff3D416D),
-                        borderRadius: BorderRadius.circular(15)
-                      ),
-                      margin: const EdgeInsets.all(20),
-                      child: Column(
-                        mainAxisAlignment:MainAxisAlignment.center,
-                        children: const [
-                        Icon(Icons.male,
-                            size: 70,color: Colors.white,
-                        ),
-                        Text("Male",
-                            style: TextStyle(
-                                fontSize: 17,
-                                color: Colors.white,
-                            )
-                        ),
-                        ],
+                    child: BmiCard(
+                      child: GenderIconText(
+                        icon: Icons.male,
+                        title: "Male",
                       ),
                     ),
                   ),
 
               Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: const Color(0xff3D416D),
-                    borderRadius: BorderRadius.circular(15)
-                    ),
-                  margin: const EdgeInsets.all(20),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Icon(Icons.female,
-                          size: 70,
-                          color: Colors.white,
-                      ),
-                      Text("Female",
-                      style: TextStyle(
-                          fontSize: 17,
-                          color: Colors.white
-                          ),
-                      ),
-                    ],
+                child: BmiCard(
+                  child: GenderIconText(
+                      title: 'Female', icon: Icons.female
                   ),
-                ),
+                )
               ),
             ],)),
           Expanded(child: Container(
@@ -94,6 +65,51 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
           )
         ],
       ),
+    );
+  }
+}
+
+class BmiCard extends StatelessWidget {
+  const BmiCard({
+    Key? key, this.child,
+  }) : super(key: key);
+
+  final Widget? child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: const Color(0xff3D416D),
+        borderRadius: BorderRadius.circular(15)
+      ),
+      margin: const EdgeInsets.all(20),
+      child: child
+    );
+  }
+}
+
+class GenderIconText extends StatelessWidget {
+  const GenderIconText({
+    Key? key, required this.title, required this.icon,
+  }) : super(key: key);
+
+  final String title;
+  final IconData icon;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment:MainAxisAlignment.center,
+      children: [
+      Icon(icon,
+          size: 70,color: Colors.white,
+      ),
+      const SizedBox(height: 15,),
+      Text(title,
+          style: genderTextStyle,
+      ),
+      ],
     );
   }
 }
