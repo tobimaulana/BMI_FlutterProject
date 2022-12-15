@@ -6,3 +6,7 @@ TextStyle genderTextStyle = const TextStyle(
                               fontSize: 17,
                               color: Colors.white,
                             );
+TextStyle labelTextStyle = const TextStyle(
+  fontSize: 17,
+  color: Colors.white,
+);
