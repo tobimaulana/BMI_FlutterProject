@@ -11,6 +11,9 @@ class BmiDataScreen extends StatefulWidget {
 }
 
 class _BmiDataScreenState extends State<BmiDataScreen> {
+
+  int height = 100;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,20 +50,24 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text("HEIGHT",
-                    style: labelTextStyle),
+                    style: labelTextStyle.copyWith(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold
+                    )),
                     const SizedBox(height: 15,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.end,
-                      children: const [
-                        Text("163",
-                          style: TextStyle(
+                      children: [
+                        Text(
+                          "$height",
+                          style: const TextStyle(
                             fontSize: 50,
                             fontWeight: FontWeight.w900,
                             color: Colors.white
                           ),
                         ),
-                        Text("cm",
+                        const Text("cm",
                           style: TextStyle(
                             fontSize: 15,
                             color: Colors.white
@@ -69,10 +76,17 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
                       ],
                     ),
                     Slider(
-                      value: 100,
+                      value: height.toDouble(),
                       min: 0,
                       max: 200,
-                      onChanged: (value){},
+                      thumbColor: Colors.amber,
+                      activeColor: Colors.grey,
+                      onChanged: (value) {
+                        height = value.toInt();
+                        setState(() {
+
+                        });
+                      },
                     )
                   ],
                 ),
