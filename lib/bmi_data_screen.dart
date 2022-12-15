@@ -17,9 +17,49 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
       ),
       body: Column(
         children: [
-          Expanded(child: Container(
-            color: Colors.red,
-          )),
+          Expanded(
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.tealAccent,
+                        borderRadius: BorderRadius.circular(15)
+                      ),
+                      child: Column(
+                        mainAxisAlignment:MainAxisAlignment.center,
+                        children: const [
+                        Icon(Icons.male,
+                            size: 70
+                        ),
+                        Text("Male",
+                            style: TextStyle(
+                                fontSize: 17,
+                                color: Color(0xff8d8e98),
+                            )
+                        ),
+                        ],
+                      ),
+                    ),
+                  ),
+
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Icon(Icons.female,
+                        size: 70
+                    ),
+                    Text("Female",
+                    style: TextStyle(
+                        fontSize: 17,
+                        color: Color(0xff8d8e98)
+                        ),
+                    ),
+                  ],
+                ),
+              ),
+            ],)),
           Expanded(child: Container(
             color: Colors.yellow,
           )),
