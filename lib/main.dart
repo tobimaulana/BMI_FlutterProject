@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'bmi_data_screen.dart';
+import 'views/bmi_data_screen.dart';
 
 void main() {
   runApp(const MyApp());

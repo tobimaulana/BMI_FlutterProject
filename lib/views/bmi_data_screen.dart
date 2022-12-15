@@ -1,4 +1,4 @@
-import 'package:body_mass_index/bmi_result_screen.dart';
+import 'package:body_mass_index/views/bmi_result_screen.dart';
 import 'package:flutter/material.dart';
 
 class BmiDataScreen extends StatefulWidget {
