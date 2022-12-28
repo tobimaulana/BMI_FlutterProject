@@ -2,7 +2,12 @@ import 'package:body_mass_index/views/bmi_data_screen.dart';
 import 'package:flutter/material.dart';
 
 class BmiResultScreen extends StatelessWidget {
-  const BmiResultScreen({Key? key}) : super(key: key);
+  const BmiResultScreen({Key? key, required this.bmi}) : super(key: key);
+
+  // Menerima masukan dari fungsi lain
+  // Variabel bmi -> berupa hasil hitung
+  // Kemudian tambahkan variabel bmi ke parameter disamping key
+  final double bmi;
 
   @override
   Widget build(BuildContext context) {
@@ -32,20 +37,20 @@ class BmiResultScreen extends StatelessWidget {
                 // Tapi jika tdk ada keperluan khusus, bisa gunakan :
                 // MainAxisAlignment.spaceEvenly
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: const [
-                  Text("Normal",
+                children: [
+                  const Text("Normal",
                   style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                       color: Colors.white
                   ),),
-                  Text("18.5",
-                  style: TextStyle(
+                  Text(bmi.toStringAsFixed(1),
+                  style: const TextStyle(
                       fontSize: 90,
                       fontWeight: FontWeight.bold,
                       color: Colors.white
-                  ),),
-                  Text(
+                  )),
+                  const Text(
                     "Your BMI result is quite low, you should eat more!",
                     textAlign: TextAlign.center,
                     style: TextStyle(
