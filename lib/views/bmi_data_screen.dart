@@ -13,6 +13,8 @@ class BmiDataScreen extends StatefulWidget {
 class _BmiDataScreenState extends State<BmiDataScreen> {
 
   int height = 100;
+  int weight = 50;
+  int age = 20;
 
   @override
   Widget build(BuildContext context) {
@@ -99,14 +101,19 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
                           "WEIGHT",
                           style: labelTextStyle,),
                         const SizedBox(height: 10,),
-                        Text("60",
+                        Text("$weight",
                           style: numberTextStyle,
                         ),
                         const SizedBox(height: 15,),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            RawMaterialButton(onPressed: () {},
+                            RawMaterialButton(onPressed: () {
+                              weight += 1;
+                              setState(() {
+
+                              });
+                            },
                               elevation: 0,
                               shape: const CircleBorder(),
                               fillColor: secondaryColorForBtnInCard,
@@ -117,7 +124,12 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
                               child: const Icon(Icons.add, color: Colors.white),
                             ),
                             SizedBox(width: 15,),
-                            RawMaterialButton(onPressed: () {},
+                            RawMaterialButton(onPressed: () {
+                              weight -= 1;
+                              setState(() {
+
+                              });
+                            },
                               elevation: 0,
                               shape: const CircleBorder(),
                               fillColor: secondaryColorForBtnInCard,
@@ -145,14 +157,19 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
                         style: labelTextStyle
                       ),
                       const SizedBox(height: 10),
-                      Text("21",
+                      Text("$age",
                         style: numberTextStyle,
                       ),
                       const SizedBox(height: 15,),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          RawMaterialButton(onPressed: () {},
+                          RawMaterialButton(onPressed: () {
+                            age++;
+                            setState(() {
+
+                            });
+                          },
                             elevation: 0,
                             shape: const CircleBorder(),
                             fillColor: secondaryColorForBtnInCard,
@@ -163,7 +180,12 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
                             child: const Icon(Icons.add, color: Colors.white),
                           ),
                           SizedBox(width: 15,),
-                          RawMaterialButton(onPressed: () {},
+                          RawMaterialButton(onPressed: () {
+                            age--;
+                            setState(() {
+
+                            });
+                          },
                             elevation: 0,
                             shape: const CircleBorder(),
                             fillColor: secondaryColorForBtnInCard,
