@@ -16,6 +16,12 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
   int weight = 50;
   int age = 20;
 
+  double calculateBmi() {
+      double heightInMeter = height / 100;
+      double bmi = weight / heightInMeter;
+      return bmi;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,7 +96,6 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
                 ),
               )),
           Expanded(
-              child: Container(
               child: Row(
               children: [
                 Expanded(child: BmiCard(
@@ -123,7 +128,7 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
                               ),
                               child: const Icon(Icons.add, color: Colors.white),
                             ),
-                            SizedBox(width: 15,),
+                            const SizedBox(width: 15),
                             RawMaterialButton(onPressed: () {
                               weight -= 1;
                               setState(() {
@@ -179,7 +184,7 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
                             ),
                             child: const Icon(Icons.add, color: Colors.white),
                           ),
-                          SizedBox(width: 15,),
+                          const SizedBox(width: 15),
                           RawMaterialButton(onPressed: () {
                             age--;
                             setState(() {
@@ -204,8 +209,7 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
                 ),
                 ),
               ],
-              ),
-          )),
+              )),
           GestureDetector(
             onTap: (){
               Navigator.of(context).push(
