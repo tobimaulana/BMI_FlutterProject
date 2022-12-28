@@ -1,3 +1,4 @@
+import 'package:body_mass_index/views/bmi_data_screen.dart';
 import 'package:flutter/material.dart';
 
 class BmiResultScreen extends StatelessWidget {
@@ -9,6 +10,75 @@ class BmiResultScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Hasil Hitung BMI"),
       ),
+      body: Column(children: [
+        const Expanded(child: Center(
+          child: Text(
+            "Hasil Perhitungan",
+            style: TextStyle(
+              fontSize: 40,
+              fontWeight: FontWeight.bold,
+              color: Colors.white
+            ),
+          ),
+        ),
+        ),
+        Expanded(
+          flex: 5,
+          child: BmiCard(
+            child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 15),
+              child: Column(
+                // Sebenarnya bisa sj pakai expanded u/ membagi sama rata,
+                // Tapi jika tdk ada keperluan khusus, bisa gunakan :
+                // MainAxisAlignment.spaceEvenly
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: const [
+                  Text("Normal",
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white
+                  ),),
+                  Text("18.5",
+                  style: TextStyle(
+                      fontSize: 90,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white
+                  ),),
+                  Text(
+                    "Your BMI result is quite low, you should eat more!",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.white
+                  ),),
+                ],
+              ),
+            ),
+          ),
+        ),
+
+        GestureDetector(
+          onTap: (){
+            // Navigator.pop untuk kembali ke halaman input data
+            Navigator.pop(context);
+          },
+          child: Container(
+            height: 80,
+            color: Colors.amber,
+            child: const Center(
+              child: Text(
+                "Hitung Ulang",
+              style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white
+              ),),
+            ),
+          ),
+        )
+
+      ],),
     );
   }
 }
