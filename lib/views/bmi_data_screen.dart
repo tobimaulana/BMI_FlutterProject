@@ -17,8 +17,10 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
   int age = 20;
 
   double calculateBmi() {
+      // Rumus BMI -> BMI = berat (dalam kg) / tinggi (dalam m) dikuadratkan
       double heightInMeter = height / 100;
-      double bmi = weight / heightInMeter;
+      final h = (heightInMeter * heightInMeter);
+      final bmi = weight / h;
       return bmi;
   }
 
@@ -215,7 +217,10 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
               Navigator.of(context).push(
                 MaterialPageRoute(
                     builder: ((context) {
-                  return const BmiResultScreen();
+                  return BmiResultScreen(
+                    // calculateBmi : mengembalikan sebuah nilai double
+                    bmi: calculateBmi(),
+                  );
                 }),
                 ),
               );
