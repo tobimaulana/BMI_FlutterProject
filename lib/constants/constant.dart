@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Color primaryBGColor = const Color(0xff12153B);
+const Color primaryBGColor = Color(0xff12153B);
 Color primaryBGColorAccent = const Color(0xff1E285D);
 Color secondaryColorForBtnInCard= const Color(0xff7175A9);
 TextStyle genderTextStyle = const TextStyle(
