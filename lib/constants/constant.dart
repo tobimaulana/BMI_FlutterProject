@@ -19,11 +19,11 @@ TextStyle numberTextStyle = const TextStyle(
 );
 
 // Buat variabel konstan u/ pengkategorian hasil BMI agar tidak typo komparasi
-String underweightSevere = "Underweight (Severe Thinness)";
-String underweightModerate = "Underweight (Moderate Thinness)";
-String underweightMild = "Underweight (Mild Thinness)";
-String normal = "Normal";
-String overweight = "Overweight";
-String obese1 = "Obese (Class 1)";
-String obese2 = "Obese (Class 2)";
-String obese3 = "Obese (Class 3)";
+const String underweightSevere = "Underweight (Severe Thinness)";
+const String underweightModerate = "Underweight (Moderate Thinness)";
+const String underweightMild = "Underweight (Mild Thinness)";
+const String normal = "Normal";
+const String overweight = "Overweight";
+const String obese1 = "Obese (Class 1)";
+const String obese2 = "Obese (Class 2)";
+const String obese3 = "Obese (Class 3)";
