@@ -91,7 +91,7 @@ class BmiResultScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Hasil Hitung BMI"),
+        title: const Text("Hasil Hitung Indeks Massa Tubuh"),
       ),
       body: Column(children: [
         const Expanded(child: Center(

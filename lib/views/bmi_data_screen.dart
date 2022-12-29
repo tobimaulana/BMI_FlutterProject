@@ -32,7 +32,7 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
       backgroundColor: const Color(0xff12153B),
       appBar: AppBar(
         centerTitle: true,
-        title: const Text("BMI Calculator"),
+        title: const Text("Kalkulator Indeks Massa Tubuh"),
       ),
       body: Column(
         children: [
@@ -49,7 +49,7 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
                         borderColor: (gender == "male") ? Colors.white : primaryBGColor,
                         child: const GenderIconText(
                           icon: Icons.male,
-                          title: "Male",
+                          title: "Laki-Laki",
                         ),
                       ),
                     ),
@@ -64,7 +64,7 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
                   child: BmiCard(
                     borderColor: (gender == "female") ? Colors.white : primaryBGColor,
                     child: const GenderIconText(
-                        title: 'Female', icon: Icons.female
+                        title: 'Perempuan', icon: Icons.female
                     ),
                   ),
                 )
@@ -75,7 +75,7 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("HEIGHT",
+                    Text("TINGGI BADAN",
                     style: labelTextStyle.copyWith(
                       fontSize: 20,
                       fontWeight: FontWeight.bold
@@ -121,7 +121,7 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "WEIGHT",
+                          "BERAT BADAN",
                           style: labelTextStyle,),
                         const SizedBox(height: 10,),
                         Text("$weight",
@@ -176,7 +176,7 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "AGE",
+                        "UMUR",
                         style: labelTextStyle
                       ),
                       const SizedBox(height: 10),
