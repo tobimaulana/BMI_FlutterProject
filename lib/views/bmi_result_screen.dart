@@ -12,7 +12,7 @@ class BmiResultScreen extends StatelessWidget {
 
   // Buat fungsi u/ menentukan kategori hasil perhitungan BMI
   // Menerima masukan berupa double
-  determineBmiCategory(double bmiValue) {
+  String determineBmiCategory(double bmiValue) {
       // Nilai akan disimpan sementara sbg variabel lokal
       String category = "";
 
@@ -51,8 +51,44 @@ class BmiResultScreen extends StatelessWidget {
       return category;
   }
 
+  String getHealthRiskDescription(String categoryName) {
+    String desc = "";
+    switch(categoryName) {
+      case underweightSevere :
+        desc = "Possible nutritional deficiency and osteoporosis.";
+        break;
+      case underweightModerate :
+        desc = "Possible nutritional deficiency and osteoporosis.";
+        break;
+      case underweightMild :
+        desc = "Possible nutritional deficiency and osteoporosis.";
+        break;
+      case normal :
+        desc = "Low risk (healthy range).";
+        break;
+      case overweight :
+        desc = "Moderate risk of developing heart disease, high blood pressure, stroke, diabetes mellitus.";
+        break;
+      case obese1 :
+        desc = "High risk of developing heart disease, high blood pressure, diabetes mellitus, and metabolic syndrome.";
+        break;
+      case obese2 :
+        desc = "High risk of developing heart disease, high blood pressure, diabetes mellitus, and metabolic syndrome.";
+        break;
+      case obese3 :
+        desc = "High risk of developing heart disease, high blood pressure, diabetes mellitus, and metabolic syndrome.";
+        break;
+      default :
+    }
+    return desc;
+  }
+
   @override
   Widget build(BuildContext context) {
+
+    final bmiCategory = determineBmiCategory(bmi);
+    final bmiDesc = getHealthRiskDescription(bmiCategory);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Hasil Hitung BMI"),
@@ -73,6 +109,7 @@ class BmiResultScreen extends StatelessWidget {
           flex: 5,
           child: BmiCard(
             child: Container(
+              width: double.infinity,
               margin: const EdgeInsets.symmetric(horizontal: 15),
               child: Column(
                 // Sebenarnya bisa sj pakai expanded u/ membagi sama rata,
@@ -80,7 +117,7 @@ class BmiResultScreen extends StatelessWidget {
                 // MainAxisAlignment.spaceEvenly
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text(determineBmiCategory(bmi),
+                  Text(bmiCategory,
                   style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -92,10 +129,10 @@ class BmiResultScreen extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                       color: Colors.white
                   )),
-                  const Text(
-                    "Your BMI result is quite low, you should eat more!",
+                  Text(
+                    bmiDesc,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 14,
                       color: Colors.white
                   ),),
