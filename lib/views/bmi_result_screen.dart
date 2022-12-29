@@ -1,18 +1,24 @@
-import 'package:body_mass_index/constants/constant.dart';
+import 'package:body_mass_index/helpers/bmi_calculator.dart';
 import 'package:body_mass_index/views/bmi_data_screen.dart';
 import 'package:flutter/material.dart';
 
 class BmiResultScreen extends StatelessWidget {
-  const BmiResultScreen({Key? key, required this.bmi}) : super(key: key);
+  const BmiResultScreen({
+    Key? key,
+    required this.bmi,
+    // this.bmiCalculator,
+  }) : super(key: key);
 
   // Menerima masukan dari fungsi lain
   // Variabel bmi -> berupa hasil hitung
   // Kemudian tambahkan variabel bmi ke parameter disamping key
   final double bmi;
 
+  // final BmiCalculator? bmiCalculator;
+
   // Buat fungsi u/ menentukan kategori hasil perhitungan BMI
   // Menerima masukan berupa double
-  String determineBmiCategory(double bmiValue) {
+  /*String determineBmiCategory(double bmiValue) {
       // Nilai akan disimpan sementara sbg variabel lokal
       String category = "";
 
@@ -74,12 +80,14 @@ class BmiResultScreen extends StatelessWidget {
     }
     return desc;
   }
-
+*/
   @override
   Widget build(BuildContext context) {
-
-    final bmiCategory = determineBmiCategory(bmi);
-    final bmiDesc = getHealthRiskDescription(bmiCategory);
+    final BmiCalculator bmiCalculator = BmiCalculator.fromBmiValue(bmi);
+    // final bmiCategory =
+    bmiCalculator.determineBmiCategory();
+    // final bmiDesc =
+    bmiCalculator.getHealthRiskDescription();
 
     return Scaffold(
       appBar: AppBar(
@@ -109,7 +117,7 @@ class BmiResultScreen extends StatelessWidget {
                 // MainAxisAlignment.spaceEvenly
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text(bmiCategory,
+                  Text(bmiCalculator.bmiCategory ?? "",
                   style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -122,7 +130,7 @@ class BmiResultScreen extends StatelessWidget {
                       color: Colors.white
                   )),
                   Text(
-                    bmiDesc,
+                    bmiCalculator.bmiDescription ?? "",
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                       fontSize: 14,

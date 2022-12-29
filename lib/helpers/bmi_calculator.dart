@@ -22,39 +22,39 @@ class BmiCalculator {
 
   // Buat fungsi u/ menentukan kategori hasil perhitungan BMI
   // Menerima masukan berupa double
-  String determineBmiCategory(double bmiValue) {
+  String determineBmiCategory() {
     // Nilai akan disimpan sementara sbg variabel lokal
     String category = "";
 
-    if (bmiValue < 16.0) {
+    if (bmi! < 16.0) {
       category = underweightSevere;
     }
 
-    else if (bmiValue < 17) {
+    else if (bmi! < 17) {
       category = underweightModerate;
     }
 
-    else if (bmiValue < 18.5) {
+    else if (bmi! < 18.5) {
       category = underweightMild;
     }
 
-    else if (bmiValue < 25.0) {
+    else if (bmi! < 25.0) {
       category = normal;
     }
 
-    else if (bmiValue < 30.0) {
+    else if (bmi! < 30.0) {
       category = overweight;
     }
 
-    else if (bmiValue < 35.0) {
+    else if (bmi! < 35.0) {
       category = obese1;
     }
 
-    else if (bmiValue < 40.0) {
+    else if (bmi! < 40.0) {
       category = obese2;
     }
 
-    else if (bmiValue >= 40.0) {
+    else if (bmi! >= 40.0) {
       category = obese3;
     }
 
@@ -63,9 +63,9 @@ class BmiCalculator {
     return bmiCategory!;
   }
 
-  String getHealthRiskDescription(String categoryName) {
+  String getHealthRiskDescription() {
     String desc = "";
-    switch(categoryName) {
+    switch(bmiCategory!) {
       case underweightSevere :
       case underweightModerate :
       case underweightMild :

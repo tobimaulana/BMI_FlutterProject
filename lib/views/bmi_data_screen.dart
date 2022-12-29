@@ -1,3 +1,4 @@
+import 'package:body_mass_index/helpers/bmi_calculator.dart';
 import 'package:body_mass_index/views/bmi_result_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -17,13 +18,13 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
   int age = 20;
   String? gender;
 
-  double calculateBmi() {
-      // Rumus BMI -> BMI = berat (dalam kg) / tinggi (dalam m) dikuadratkan
-      double heightInMeter = height / 100;
-      final h = (heightInMeter * heightInMeter);
-      final bmi = weight / h;
-      return bmi;
-  }
+  // double calculateBmi() {
+  //     // Rumus BMI -> BMI = berat (dalam kg) / tinggi (dalam m) dikuadratkan
+  //     double heightInMeter = height / 100;
+  //     final h = (heightInMeter * heightInMeter);
+  //     final bmi = weight / h;
+  //     return bmi;
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -229,12 +230,15 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
               )),
           GestureDetector(
             onTap: (){
+              final bmiCalculator = BmiCalculator(height: height, weight: weight);
+              bmiCalculator.calculateBmi();
+
               Navigator.of(context).push(
                 MaterialPageRoute(
                     builder: ((context) {
                   return BmiResultScreen(
                     // calculateBmi : mengembalikan sebuah nilai double
-                    bmi: calculateBmi(),
+                    bmi: bmiCalculator.bmi!,
                   );
                 }),
                 ),
