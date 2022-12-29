@@ -15,6 +15,7 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
   int height = 100;
   int weight = 50;
   int age = 20;
+  String? gender;
 
   double calculateBmi() {
       // Rumus BMI -> BMI = berat (dalam kg) / tinggi (dalam m) dikuadratkan
@@ -36,20 +37,34 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
         children: [
           Expanded(
               child: Row(
-                children: const [
+                children: [
                   Expanded(
-                    child: BmiCard(
-                      child: GenderIconText(
-                        icon: Icons.male,
-                        title: "Male",
+                    child: GestureDetector(
+                      onTap: () {
+                        gender = "male";
+                        setState(() {});
+                      },
+                      child: BmiCard(
+                        borderColor: (gender == "male") ? Colors.white : primaryBGColor,
+                        child: const GenderIconText(
+                          icon: Icons.male,
+                          title: "Male",
+                        ),
                       ),
                     ),
                   ),
 
-              Expanded(
-                child: BmiCard(
-                  child: GenderIconText(
-                      title: 'Female', icon: Icons.female
+               Expanded(
+                child: GestureDetector(
+                  onTap: () {
+                    gender = "female";
+                    setState(() {});
+                  },
+                  child: BmiCard(
+                    borderColor: (gender == "female") ? Colors.white : primaryBGColor,
+                    child: const GenderIconText(
+                        title: 'Female', icon: Icons.female
+                    ),
                   ),
                 )
               ),
@@ -245,17 +260,21 @@ class _BmiDataScreenState extends State<BmiDataScreen> {
 
 class BmiCard extends StatelessWidget {
   const BmiCard({
-    Key? key, this.child,
+    Key? key, this.child, this.borderColor = primaryBGColor,
   }) : super(key: key);
 
   final Widget? child;
+  final Color? borderColor;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         color: const Color(0xff3D416D),
-        borderRadius: BorderRadius.circular(15)
+        borderRadius: BorderRadius.circular(15),
+        border: Border.all(
+          color: borderColor!
+        ),
       ),
       margin: const EdgeInsets.all(20),
       child: child
